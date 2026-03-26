@@ -183,10 +183,12 @@
             // rbLODEnv0
             // 
             this.rbLODEnv0.AutoSize = true;
+            this.rbLODEnv0.Checked = true;
             this.rbLODEnv0.Location = new System.Drawing.Point(6, 19);
             this.rbLODEnv0.Name = "rbLODEnv0";
             this.rbLODEnv0.Size = new System.Drawing.Size(81, 17);
             this.rbLODEnv0.TabIndex = 6;
+            this.rbLODEnv0.TabStop = true;
             this.rbLODEnv0.Text = "Unchanged";
             this.rbLODEnv0.UseVisualStyleBackColor = true;
             // 
@@ -203,12 +205,10 @@
             // rbLODEnv1
             // 
             this.rbLODEnv1.AutoSize = true;
-            this.rbLODEnv1.Checked = true;
             this.rbLODEnv1.Location = new System.Drawing.Point(93, 19);
             this.rbLODEnv1.Name = "rbLODEnv1";
             this.rbLODEnv1.Size = new System.Drawing.Size(44, 17);
             this.rbLODEnv1.TabIndex = 8;
-            this.rbLODEnv1.TabStop = true;
             this.rbLODEnv1.Text = "Bad";
             this.rbLODEnv1.UseVisualStyleBackColor = true;
             // 
@@ -238,10 +238,12 @@
             // rbLODColl0
             // 
             this.rbLODColl0.AutoSize = true;
+            this.rbLODColl0.Checked = true;
             this.rbLODColl0.Location = new System.Drawing.Point(6, 19);
             this.rbLODColl0.Name = "rbLODColl0";
             this.rbLODColl0.Size = new System.Drawing.Size(81, 17);
             this.rbLODColl0.TabIndex = 6;
+            this.rbLODColl0.TabStop = true;
             this.rbLODColl0.Text = "Unchanged";
             this.rbLODColl0.UseVisualStyleBackColor = true;
             // 
@@ -258,12 +260,10 @@
             // rbLODColl1
             // 
             this.rbLODColl1.AutoSize = true;
-            this.rbLODColl1.Checked = true;
             this.rbLODColl1.Location = new System.Drawing.Point(93, 19);
             this.rbLODColl1.Name = "rbLODColl1";
             this.rbLODColl1.Size = new System.Drawing.Size(44, 17);
             this.rbLODColl1.TabIndex = 8;
-            this.rbLODColl1.TabStop = true;
             this.rbLODColl1.Text = "Bad";
             this.rbLODColl1.UseVisualStyleBackColor = true;
             // 
@@ -293,10 +293,12 @@
             // rbLODShipI0
             // 
             this.rbLODShipI0.AutoSize = true;
+            this.rbLODShipI0.Checked = true;
             this.rbLODShipI0.Location = new System.Drawing.Point(6, 19);
             this.rbLODShipI0.Name = "rbLODShipI0";
             this.rbLODShipI0.Size = new System.Drawing.Size(81, 17);
             this.rbLODShipI0.TabIndex = 6;
+            this.rbLODShipI0.TabStop = true;
             this.rbLODShipI0.Text = "Unchanged";
             this.rbLODShipI0.UseVisualStyleBackColor = true;
             // 
@@ -313,12 +315,10 @@
             // rbLODShipI1
             // 
             this.rbLODShipI1.AutoSize = true;
-            this.rbLODShipI1.Checked = true;
             this.rbLODShipI1.Location = new System.Drawing.Point(93, 19);
             this.rbLODShipI1.Name = "rbLODShipI1";
             this.rbLODShipI1.Size = new System.Drawing.Size(44, 17);
             this.rbLODShipI1.TabIndex = 8;
-            this.rbLODShipI1.TabStop = true;
             this.rbLODShipI1.Text = "Bad";
             this.rbLODShipI1.UseVisualStyleBackColor = true;
             // 
@@ -348,10 +348,12 @@
             // rbLODShipE0
             // 
             this.rbLODShipE0.AutoSize = true;
+            this.rbLODShipE0.Checked = true;
             this.rbLODShipE0.Location = new System.Drawing.Point(6, 19);
             this.rbLODShipE0.Name = "rbLODShipE0";
             this.rbLODShipE0.Size = new System.Drawing.Size(81, 17);
             this.rbLODShipE0.TabIndex = 6;
+            this.rbLODShipE0.TabStop = true;
             this.rbLODShipE0.Text = "Unchanged";
             this.rbLODShipE0.UseVisualStyleBackColor = true;
             // 
@@ -368,12 +370,10 @@
             // rbLODShipE1
             // 
             this.rbLODShipE1.AutoSize = true;
-            this.rbLODShipE1.Checked = true;
             this.rbLODShipE1.Location = new System.Drawing.Point(93, 19);
             this.rbLODShipE1.Name = "rbLODShipE1";
             this.rbLODShipE1.Size = new System.Drawing.Size(44, 17);
             this.rbLODShipE1.TabIndex = 8;
-            this.rbLODShipE1.TabStop = true;
             this.rbLODShipE1.Text = "Bad";
             this.rbLODShipE1.UseVisualStyleBackColor = true;
             // 
@@ -415,10 +415,12 @@
             // rbLODStationI0
             // 
             this.rbLODStationI0.AutoSize = true;
+            this.rbLODStationI0.Checked = true;
             this.rbLODStationI0.Location = new System.Drawing.Point(6, 19);
             this.rbLODStationI0.Name = "rbLODStationI0";
             this.rbLODStationI0.Size = new System.Drawing.Size(81, 17);
             this.rbLODStationI0.TabIndex = 6;
+            this.rbLODStationI0.TabStop = true;
             this.rbLODStationI0.Text = "Unchanged";
             this.rbLODStationI0.UseVisualStyleBackColor = true;
             // 
@@ -435,12 +437,10 @@
             // rbLODStationI1
             // 
             this.rbLODStationI1.AutoSize = true;
-            this.rbLODStationI1.Checked = true;
             this.rbLODStationI1.Location = new System.Drawing.Point(93, 19);
             this.rbLODStationI1.Name = "rbLODStationI1";
             this.rbLODStationI1.Size = new System.Drawing.Size(44, 17);
             this.rbLODStationI1.TabIndex = 8;
-            this.rbLODStationI1.TabStop = true;
             this.rbLODStationI1.Text = "Bad";
             this.rbLODStationI1.UseVisualStyleBackColor = true;
             // 
@@ -470,10 +470,12 @@
             // rbLODStationE0
             // 
             this.rbLODStationE0.AutoSize = true;
+            this.rbLODStationE0.Checked = true;
             this.rbLODStationE0.Location = new System.Drawing.Point(6, 19);
             this.rbLODStationE0.Name = "rbLODStationE0";
             this.rbLODStationE0.Size = new System.Drawing.Size(81, 17);
             this.rbLODStationE0.TabIndex = 6;
+            this.rbLODStationE0.TabStop = true;
             this.rbLODStationE0.Text = "Unchanged";
             this.rbLODStationE0.UseVisualStyleBackColor = true;
             // 
@@ -490,12 +492,10 @@
             // rbLODStationE1
             // 
             this.rbLODStationE1.AutoSize = true;
-            this.rbLODStationE1.Checked = true;
             this.rbLODStationE1.Location = new System.Drawing.Point(93, 19);
             this.rbLODStationE1.Name = "rbLODStationE1";
             this.rbLODStationE1.Size = new System.Drawing.Size(44, 17);
             this.rbLODStationE1.TabIndex = 8;
-            this.rbLODStationE1.TabStop = true;
             this.rbLODStationE1.Text = "Bad";
             this.rbLODStationE1.UseVisualStyleBackColor = true;
             // 
@@ -572,7 +572,7 @@
             0,
             0});
             this.numTexMinSize.Minimum = new decimal(new int[] {
-            1025,
+            1,
             0,
             0,
             0});
@@ -622,22 +622,22 @@
             // rbTexMisc1
             // 
             this.rbTexMisc1.AutoSize = true;
+            this.rbTexMisc1.Checked = true;
             this.rbTexMisc1.Location = new System.Drawing.Point(93, 19);
             this.rbTexMisc1.Name = "rbTexMisc1";
             this.rbTexMisc1.Size = new System.Drawing.Size(44, 17);
             this.rbTexMisc1.TabIndex = 8;
+            this.rbTexMisc1.TabStop = true;
             this.rbTexMisc1.Text = "Bad";
             this.rbTexMisc1.UseVisualStyleBackColor = true;
             // 
             // rbTexMisc2
             // 
             this.rbTexMisc2.AutoSize = true;
-            this.rbTexMisc2.Checked = true;
             this.rbTexMisc2.Location = new System.Drawing.Point(143, 19);
             this.rbTexMisc2.Name = "rbTexMisc2";
             this.rbTexMisc2.Size = new System.Drawing.Size(56, 17);
             this.rbTexMisc2.TabIndex = 9;
-            this.rbTexMisc2.TabStop = true;
             this.rbTexMisc2.Text = "Worse";
             this.rbTexMisc2.UseVisualStyleBackColor = true;
             // 
@@ -732,22 +732,22 @@
             // rbTexEnv1
             // 
             this.rbTexEnv1.AutoSize = true;
+            this.rbTexEnv1.Checked = true;
             this.rbTexEnv1.Location = new System.Drawing.Point(93, 19);
             this.rbTexEnv1.Name = "rbTexEnv1";
             this.rbTexEnv1.Size = new System.Drawing.Size(44, 17);
             this.rbTexEnv1.TabIndex = 8;
+            this.rbTexEnv1.TabStop = true;
             this.rbTexEnv1.Text = "Bad";
             this.rbTexEnv1.UseVisualStyleBackColor = true;
             // 
             // rbTexEnv2
             // 
             this.rbTexEnv2.AutoSize = true;
-            this.rbTexEnv2.Checked = true;
             this.rbTexEnv2.Location = new System.Drawing.Point(143, 19);
             this.rbTexEnv2.Name = "rbTexEnv2";
             this.rbTexEnv2.Size = new System.Drawing.Size(56, 17);
             this.rbTexEnv2.TabIndex = 9;
-            this.rbTexEnv2.TabStop = true;
             this.rbTexEnv2.Text = "Worse";
             this.rbTexEnv2.UseVisualStyleBackColor = true;
             // 
@@ -927,7 +927,7 @@
             this.groupBox11.Size = new System.Drawing.Size(366, 40);
             this.groupBox11.TabIndex = 3;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Quality: Ships";
+            this.groupBox11.Text = "Quality: Ship interiors";
             // 
             // rbTexShips0
             // 
@@ -1132,7 +1132,7 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "LOWRES X4 v0.6 (by albanana)";
+            this.Text = "LOWRES X4 v0.8 (by albanana)";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

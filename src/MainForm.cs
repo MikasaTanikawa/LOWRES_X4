@@ -36,6 +36,14 @@ namespace LOWRES_X4
                     .GetFiles("*.cat", SearchOption.TopDirectoryOnly)
                     .Select((finfo) => finfo.FullName).ToList();
 
+                if (Directory.Exists(dirInfo.FullName + "\\extensions"))
+                {
+                    foreach(var extDir in new DirectoryInfo(dirInfo.FullName + "\\extensions").GetDirectories("ego_dlc*",SearchOption.TopDirectoryOnly) )
+                        catFiles_.AddRange(extDir
+                            .GetFiles("*.cat", SearchOption.TopDirectoryOnly)
+                            .Select((finfo) => finfo.FullName).ToList());
+                }
+
                 var filesFound = catFiles_.Count > 0;
                 if (!filesFound)
                     MessageBox.Show("Selected folder does not contain .cat files", "Wrong folder selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -87,10 +95,8 @@ namespace LOWRES_X4
             if (!cbSimulate.Checked)
             {
                 if (MessageBox.Show(
-                    string.Format(
-                    "Did you make backups of all .cat-files AND .dat-files in\n\"{0}\" ?\n" +
-                    "This little app currently can't restore any changes made to those files, " +
-                    "so you would most likely have to reinstall X4 if you wanted to restore them.", path_),
+                    "App will make backups of all original .cat-files AND .dat-files adding \".original\" to filenames.\n" +
+                    "So you would have to rename them back if you wanted to restore them.",
                     "Last reminder",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                     return;

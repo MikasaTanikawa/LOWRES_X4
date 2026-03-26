@@ -1,0 +1,9 @@
+﻿0.8
+
+Now also worsening files from official DLCs. Yay!
+Program now backups original files. But only them. Worsening changed files will not rewrite original backups.
+Program corrupts multiarray (with many frames) textures, so we ignore them.
+Can't open worsened textures with 1 height, so we ignore them and textures with 1 width too.
+Added assets/textures/ui/ path to GUI category.
+Decresed texture size limit to 1 byte.
+Changed default settings.

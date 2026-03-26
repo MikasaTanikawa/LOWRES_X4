@@ -90,7 +90,8 @@ namespace LOWRES_X4
                 path.StartsWith("assets/fx/gui/fonts/textures/"))
                 return TECategory.Fonts;
             else if (
-                path.StartsWith("assets/fx/gui/textures/"))
+                path.StartsWith("assets/fx/gui/textures/") ||
+                path.StartsWith("assets/textures/ui/"))
                 return TECategory.GUI;
             else if (
                 path.StartsWith("assets/characters/") &&

@@ -57,45 +57,58 @@ namespace LOWRES_X4
             {
                 if (updateFiles && _updateCat)
                 {
-                    using (FileStream fs = new FileStream(_pathCat, FileMode.Truncate, FileAccess.Write, FileShare.None))
-                    using (var writer = new StreamWriter(fs, Encoding.UTF8))
+                    using (FileStream fs = new FileStream(_pathCat + "_new", FileMode.Create, FileAccess.Write, FileShare.None))
                     {
-                        foreach (var e in _entries)
+                        using (var writer = new StreamWriter(fs, new UTF8Encoding(false)))
                         {
-                            if (e.Data != null)
-                                writer.Write(string.Format("{0} {1} {2} {3}\n", e.Path, e.Data.Length, e.TimeStamp, GetChecksum(e)));
-                            else
-                                writer.Write(string.Format("{0} {1} {2} {3}\n", e.Path, e.OrigSize, e.TimeStamp, e.ChkSum));
+                            foreach (var e in _entries)
+                            {
+                                if (e.Data != null)
+                                    writer.Write(string.Format("{0} {1} {2} {3}\n", e.Path, e.Data.Length, e.TimeStamp, GetChecksum(e)));
+                                else
+                                    writer.Write(string.Format("{0} {1} {2} {3}\n", e.Path, e.OrigSize, e.TimeStamp, e.ChkSum));
+                            }
                         }
                     }
+
+                    if (!File.Exists(_pathCat + ".original"))
+                        File.Move(_pathCat, _pathCat + ".original");
+                    else
+                        File.Delete(_pathCat);
+                    File.Move(_pathCat + "_new", _pathCat);
                 }
 
                 if (updateFiles && _updateDat && _datStream != null)
                 {
                     using (FileStream fs = new FileStream(_pathDat + "_new", FileMode.Create, FileAccess.Write, FileShare.None))
-                    using (var writer = new BinaryWriter(fs))
                     {
-                        long pos = 0;
-                        foreach (var e in _entries)
+                        using (var writer = new BinaryWriter(fs))
                         {
-                            if (e.Data != null)
-                                writer.Write(e.Data);
-                            else
+                            long pos = 0;
+                            foreach (var e in _entries)
                             {
-                                _datStream.Seek(pos, SeekOrigin.Begin);
-                                var oldDat = new byte[e.OrigSize];
-                                _datStream.Read(oldDat, 0, (int)e.OrigSize);
-                                writer.Write(oldDat);
-                            }
+                                if (e.Data != null)
+                                    writer.Write(e.Data);
+                                else
+                                {
+                                    _datStream.Seek(pos, SeekOrigin.Begin);
+                                    var oldDat = new byte[e.OrigSize];
+                                    _datStream.Read(oldDat, 0, (int)e.OrigSize);
+                                    writer.Write(oldDat);
+                                }
 
-                            pos += e.OrigSize;
+                                pos += e.OrigSize;
+                            }
                         }
                     }
 
                     _datStream.Close();
                     _datStream = null;
 
-                    File.Delete(_pathDat);
+                    if (!File.Exists(_pathDat + ".original"))
+                        File.Move(_pathDat, _pathDat + ".original");
+                    else
+                        File.Delete(_pathDat);
                     File.Move(_pathDat + "_new", _pathDat);
                 }
             }
@@ -162,7 +175,7 @@ namespace LOWRES_X4
                         break;
                 }
 
-                if (e.OrigSize >= levels.MinTextureSize)
+                if (qlevel > 0 && e.OrigSize >= levels.MinTextureSize)
                 {
                     if (DoReduceDDS(e, cat, currentPos, qlevel, res))
                     {
@@ -199,8 +212,21 @@ namespace LOWRES_X4
                     DirectXTexNet.DDS_FLAGS.NONE);
 
                 var imgCount = img.GetImageCount();
-                if (imgCount > 1)
+                var metadata = img.GetMetadata();
+                if (imgCount > 1 &&
+                    !(metadata.ArraySize > 1) &&
+                    !(metadata.Height == 1 || metadata.Width == 1)) // ignore mipmapless, multiarray and non-2D textures
                 {
+                    // Failed attempts to get rid of FreeFirstImage T_T
+                    //int newWidth = Convert.ToInt32(metadata.Width / Math.Pow(2, levels));
+                    //int newHeight = Convert.ToInt32(metadata.Height / Math.Pow(2, levels));
+
+                    //var resizedImg = img.Resize(
+                    //    newWidth,
+                    //    newHeight,
+                    //    DirectXTexNet.TEX_FILTER_FLAGS.DEFAULT);
+                    //img = resizedImg.GenerateMipMaps(DirectXTexNet.TEX_FILTER_FLAGS.DEFAULT, 0);
+
                     for (int i = 0; i < Math.Min(imgCount - 1, levels); ++i)
                         img.FreeFirstImage(); // TODO: replace loop
 
