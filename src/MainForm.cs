@@ -50,6 +50,7 @@ namespace LOWRES_X4
 
                 lblFolder.Text = path_;
                 btnLowerQuality.Enabled = filesFound;
+                btnRestore.Enabled = true;
             }
         }
 
@@ -96,7 +97,7 @@ namespace LOWRES_X4
             {
                 if (MessageBox.Show(
                     "App will make backups of all original .cat-files AND .dat-files adding \".original\" to filenames.\n" +
-                    "So you would have to rename them back if you wanted to restore them.",
+                    "So you could restore them back if you wanted.",
                     "Last reminder",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                     return;
@@ -114,6 +115,7 @@ namespace LOWRES_X4
 
             btnOpen.Enabled = false;
             btnLowerQuality.Enabled = false;
+            btnRestore.Enabled = false;
             gbMeshes.Enabled = false;
             gbTextures.Enabled = false;
             cbSimulate.Enabled = false;
@@ -227,8 +229,6 @@ namespace LOWRES_X4
                     if (!cbSimulate.Checked)
                     {
                         lblFolder.Text = "Please don't attempt to modify the same files again, restore them before that";
-                        path_ = null;
-                        catFiles_.Clear();
                     }
                     else
                         btnLowerQuality.Enabled = true;
@@ -237,8 +237,72 @@ namespace LOWRES_X4
                     gbTextures.Enabled = true;
                     cbSimulate.Enabled = true;
                     btnOpen.Enabled = true;
+                    btnRestore.Enabled = true;
                 }));
             });
+        }
+
+        private void BtnRestore_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(
+                    "Are you sure you want to restore all original .cat AND .dat-files?\n",
+                    "Last reminder",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
+
+            var dirInfo = new DirectoryInfo(path_);
+
+            var originalFiles = dirInfo
+                .GetFiles("*.cat.original", SearchOption.TopDirectoryOnly)
+                .Select((finfo) => finfo.FullName).ToList();
+
+            originalFiles.AddRange(dirInfo
+                .GetFiles("*.dat.original", SearchOption.TopDirectoryOnly)
+                .Select((finfo) => finfo.FullName).ToList());
+
+            if (Directory.Exists(dirInfo.FullName + "\\extensions"))
+            {
+                foreach (var extDir in new DirectoryInfo(dirInfo.FullName + "\\extensions").GetDirectories("ego_dlc*", SearchOption.TopDirectoryOnly))
+                {
+                    originalFiles.AddRange(extDir
+                        .GetFiles("*.cat.original", SearchOption.TopDirectoryOnly)
+                        .Select((finfo) => finfo.FullName).ToList());
+                    originalFiles.AddRange(extDir
+                        .GetFiles("*.dat.original", SearchOption.TopDirectoryOnly)
+                        .Select((finfo) => finfo.FullName).ToList());
+                }
+            }
+
+            var filesFound = originalFiles.Count > 0;
+            if (!filesFound)
+                MessageBox.Show("Selected folder does not contain backups of original files!",
+                    "Wrong folder selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                foreach (var originalFile in originalFiles)
+                {
+                    var file = originalFile.Remove(originalFile.LastIndexOf(".original"));
+
+                    try
+                    {
+                        AddLogLineInfo($"Restoring {file}");
+
+                        if (File.Exists(file))
+                            File.Delete(file);
+                        File.Move(originalFile, file);
+                    }
+                    catch (Exception ex)
+                    {
+                        AddLogLineError(string.Format("\tException occured: {0}", ex));
+                        AddLogLineError();
+
+                        AddLogLineError("Canceled further processing (contact developer ?)");
+                        break;
+                    }
+                }
+
+                btnLowerQuality.Enabled = true;
+            }
         }
 
         private void AddLogLineInfo(string text = null)

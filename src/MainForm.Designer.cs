@@ -116,6 +116,7 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.lbResults = new System.Windows.Forms.RichTextBox();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -148,6 +149,8 @@
             // 
             // lblFolder
             // 
+            this.lblFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFolder.Location = new System.Drawing.Point(144, 478);
             this.lblFolder.Name = "lblFolder";
@@ -536,6 +539,8 @@
             // 
             // gbTextures
             // 
+            this.gbTextures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbTextures.Controls.Add(this.label2);
             this.gbTextures.Controls.Add(this.numTexMinSize);
             this.gbTextures.Controls.Add(this.groupBox15);
@@ -588,6 +593,8 @@
             // 
             // groupBox15
             // 
+            this.groupBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox15.Controls.Add(this.rbTexMisc0);
             this.groupBox15.Controls.Add(this.rbTexMisc3);
             this.groupBox15.Controls.Add(this.rbTexMisc1);
@@ -643,6 +650,8 @@
             // 
             // groupBox17
             // 
+            this.groupBox17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox17.Controls.Add(this.rbTexGUI0);
             this.groupBox17.Controls.Add(this.rbTexGUI3);
             this.groupBox17.Controls.Add(this.rbTexGUI1);
@@ -657,10 +666,12 @@
             // rbTexGUI0
             // 
             this.rbTexGUI0.AutoSize = true;
+            this.rbTexGUI0.Checked = true;
             this.rbTexGUI0.Location = new System.Drawing.Point(6, 19);
             this.rbTexGUI0.Name = "rbTexGUI0";
             this.rbTexGUI0.Size = new System.Drawing.Size(81, 17);
             this.rbTexGUI0.TabIndex = 6;
+            this.rbTexGUI0.TabStop = true;
             this.rbTexGUI0.Text = "Unchanged";
             this.rbTexGUI0.UseVisualStyleBackColor = true;
             // 
@@ -677,12 +688,10 @@
             // rbTexGUI1
             // 
             this.rbTexGUI1.AutoSize = true;
-            this.rbTexGUI1.Checked = true;
             this.rbTexGUI1.Location = new System.Drawing.Point(93, 19);
             this.rbTexGUI1.Name = "rbTexGUI1";
             this.rbTexGUI1.Size = new System.Drawing.Size(44, 17);
             this.rbTexGUI1.TabIndex = 8;
-            this.rbTexGUI1.TabStop = true;
             this.rbTexGUI1.Text = "Bad";
             this.rbTexGUI1.UseVisualStyleBackColor = true;
             // 
@@ -698,6 +707,8 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox12.Controls.Add(this.rbTexEnv0);
             this.groupBox12.Controls.Add(this.rbTexEnv3);
             this.groupBox12.Controls.Add(this.rbTexEnv1);
@@ -753,6 +764,8 @@
             // 
             // groupBox16
             // 
+            this.groupBox16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox16.Controls.Add(this.rbTexFont0);
             this.groupBox16.Controls.Add(this.rbTexFont3);
             this.groupBox16.Controls.Add(this.rbTexFont1);
@@ -808,6 +821,8 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox9.Controls.Add(this.rbTexNPC0);
             this.groupBox9.Controls.Add(this.rbTexNPC3);
             this.groupBox9.Controls.Add(this.rbTexNPC1);
@@ -863,6 +878,8 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.rbTexFX0);
             this.groupBox10.Controls.Add(this.rbTexFX3);
             this.groupBox10.Controls.Add(this.rbTexFX1);
@@ -918,6 +935,8 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox11.Controls.Add(this.rbTexShips0);
             this.groupBox11.Controls.Add(this.rbTexShips3);
             this.groupBox11.Controls.Add(this.rbTexShips1);
@@ -973,6 +992,8 @@
             // 
             // groupBox13
             // 
+            this.groupBox13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox13.Controls.Add(this.rbTexStationE0);
             this.groupBox13.Controls.Add(this.rbTexStationE3);
             this.groupBox13.Controls.Add(this.rbTexStationE1);
@@ -1028,6 +1049,8 @@
             // 
             // groupBox14
             // 
+            this.groupBox14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox14.Controls.Add(this.rbTexStationI0);
             this.groupBox14.Controls.Add(this.rbTexStationI3);
             this.groupBox14.Controls.Add(this.rbTexStationI1);
@@ -1083,6 +1106,8 @@
             // 
             // progressBar
             // 
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar.Location = new System.Drawing.Point(12, 801);
             this.progressBar.MarqueeAnimationSpeed = 50;
             this.progressBar.Name = "progressBar";
@@ -1102,6 +1127,9 @@
             // 
             // lbResults
             // 
+            this.lbResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbResults.BackColor = System.Drawing.SystemColors.HighlightText;
             this.lbResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbResults.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1112,11 +1140,24 @@
             this.lbResults.TabIndex = 9;
             this.lbResults.Text = "";
             // 
+            // btnRestore
+            // 
+            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestore.Enabled = false;
+            this.btnRestore.Location = new System.Drawing.Point(661, 504);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(121, 23);
+            this.btnRestore.TabIndex = 10;
+            this.btnRestore.Text = "Restore original files";
+            this.btnRestore.UseVisualStyleBackColor = true;
+            this.btnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 821);
+            this.Controls.Add(this.btnRestore);
             this.Controls.Add(this.lbResults);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.progressBar);
@@ -1126,7 +1167,6 @@
             this.Controls.Add(this.lblFolder);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnLowerQuality);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1261,6 +1301,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rbTexFont0;
         private System.Windows.Forms.RichTextBox lbResults;
+        private System.Windows.Forms.Button btnRestore;
     }
 }
 

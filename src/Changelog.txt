@@ -5,5 +5,12 @@ Program now backups original files. But only them. Worsening changed files will 
 Program corrupts multiarray (with many frames) textures, so we ignore them.
 Can't open worsened textures with 1 height, so we ignore them and textures with 1 width too.
 Added assets/textures/ui/ path to GUI category.
-Decresed texture size limit to 1 byte.
+Decreased texture size limit to 1 byte.
 Changed default settings.
+Cat files saved without BOM header.
+
+0.8.0.1
+
+Multiarray textures will be resized using TRIANGLE filter.
+Program window is now sizable.
+Added button to restore original files.

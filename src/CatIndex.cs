@@ -213,22 +213,30 @@ namespace LOWRES_X4
 
                 var imgCount = img.GetImageCount();
                 var metadata = img.GetMetadata();
-                if (imgCount > 1 &&
-                    !(metadata.ArraySize > 1) &&
-                    !(metadata.Height == 1 || metadata.Width == 1)) // ignore mipmapless, multiarray and non-2D textures
+                if (imgCount > 1 && !(metadata.Height == 1 || metadata.Width == 1)) // ignore mipmapless, and non-2D textures
                 {
-                    // Failed attempts to get rid of FreeFirstImage T_T
-                    //int newWidth = Convert.ToInt32(metadata.Width / Math.Pow(2, levels));
-                    //int newHeight = Convert.ToInt32(metadata.Height / Math.Pow(2, levels));
+                    if (metadata.ArraySize > 1) // resizing multiarray textures
+                    {
+                        int newWidth = Convert.ToInt32(Math.Max(metadata.Width / Math.Pow(2, levels), 1));
+                        int newHeight = Convert.ToInt32(Math.Max(metadata.Height / Math.Pow(2, levels), 1));
+                        bool isTexCompressed = DirectXTexNet.TexHelper.Instance.IsCompressed(metadata.Format);
 
-                    //var resizedImg = img.Resize(
-                    //    newWidth,
-                    //    newHeight,
-                    //    DirectXTexNet.TEX_FILTER_FLAGS.DEFAULT);
-                    //img = resizedImg.GenerateMipMaps(DirectXTexNet.TEX_FILTER_FLAGS.DEFAULT, 0);
+                        if (isTexCompressed)
+                            img = img.Decompress(DirectXTexNet.DXGI_FORMAT.UNKNOWN);
 
-                    for (int i = 0; i < Math.Min(imgCount - 1, levels); ++i)
-                        img.FreeFirstImage(); // TODO: replace loop
+                        img = img.Resize(newWidth, newHeight, DirectXTexNet.TEX_FILTER_FLAGS.TRIANGLE);
+
+                        if (metadata.MipLevels > 1)
+                            img = img.GenerateMipMaps(DirectXTexNet.TEX_FILTER_FLAGS.TRIANGLE, 0);
+
+                        if (isTexCompressed)
+                            img = img.Compress(metadata.Format, DirectXTexNet.TEX_COMPRESS_FLAGS.DEFAULT, 0.5f);
+                    }
+                    else
+                    {
+                        for (int i = 0; i < Math.Min(imgCount - 1, levels); ++i)
+                            img.FreeFirstImage(); // TODO: replace loop
+                    }
 
                     var ufs = img.SaveToDDSMemory(DirectXTexNet.DDS_FLAGS.NONE);
                     var newData = new byte[ufs.Length];
