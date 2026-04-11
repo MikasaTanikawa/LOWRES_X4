@@ -175,7 +175,7 @@ namespace LOWRES_X4
                         break;
                 }
 
-                if (qlevel > 0 && e.OrigSize >= levels.MinTextureSize)
+                if (qlevel != 0 && e.OrigSize >= levels.MinTextureSize)
                 {
                     if (DoReduceDDS(e, cat, currentPos, qlevel, res))
                     {
@@ -215,30 +215,34 @@ namespace LOWRES_X4
                 var metadata = img.GetMetadata();
                 if (imgCount > 1 && !(metadata.Height == 1 || metadata.Width == 1)) // ignore mipmapless, and non-2D textures
                 {
-                    if (metadata.ArraySize > 1) // resizing multiarray textures
+                    if (levels >= 0)
                     {
-                        int newWidth = Convert.ToInt32(Math.Max(metadata.Width / Math.Pow(2, levels), 1));
-                        int newHeight = Convert.ToInt32(Math.Max(metadata.Height / Math.Pow(2, levels), 1));
-                        bool isTexCompressed = DirectXTexNet.TexHelper.Instance.IsCompressed(metadata.Format);
+                        if (metadata.ArraySize > 1) // resizing multiarray textures
+                        {
+                            int newWidth = Convert.ToInt32(Math.Max(metadata.Width / Math.Pow(2, levels), 1));
+                            int newHeight = Convert.ToInt32(Math.Max(metadata.Height / Math.Pow(2, levels), 1));
+                            bool isTexCompressed = DirectXTexNet.TexHelper.Instance.IsCompressed(metadata.Format);
 
-                        if (isTexCompressed)
-                            img = img.Decompress(DirectXTexNet.DXGI_FORMAT.UNKNOWN);
+                            if (isTexCompressed)
+                                img = img.Decompress(DirectXTexNet.DXGI_FORMAT.UNKNOWN);
 
-                        img = img.Resize(newWidth, newHeight, DirectXTexNet.TEX_FILTER_FLAGS.TRIANGLE);
+                            img = img.Resize(newWidth, newHeight, DirectXTexNet.TEX_FILTER_FLAGS.TRIANGLE);
 
-                        if (metadata.MipLevels > 1)
-                            img = img.GenerateMipMaps(DirectXTexNet.TEX_FILTER_FLAGS.TRIANGLE, 0);
+                            if (metadata.MipLevels > 1)
+                                img = img.GenerateMipMaps(DirectXTexNet.TEX_FILTER_FLAGS.TRIANGLE, 0);
 
-                        if (isTexCompressed)
-                            img = img.Compress(metadata.Format, DirectXTexNet.TEX_COMPRESS_FLAGS.DEFAULT, 0.5f);
+                            if (isTexCompressed)
+                                img = img.Compress(metadata.Format, DirectXTexNet.TEX_COMPRESS_FLAGS.DEFAULT, 0.5f);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < Math.Min(imgCount - 1, levels); ++i)
+                                img.FreeFirstImage(); // TODO: replace loop
+                        }
                     }
-                    else
-                    {
-                        for (int i = 0; i < Math.Min(imgCount - 1, levels); ++i)
-                            img.FreeFirstImage(); // TODO: replace loop
-                    }
 
-                    var ufs = img.SaveToDDSMemory(DirectXTexNet.DDS_FLAGS.NONE);
+                    var ufs = levels >= 0 ? img.SaveToDDSMemory(DirectXTexNet.DDS_FLAGS.NONE)
+                        : img.SaveToDDSMemory(0, DirectXTexNet.DDS_FLAGS.NONE);
                     var newData = new byte[ufs.Length];
                     ufs.Read(newData, 0, newData.Length);
 

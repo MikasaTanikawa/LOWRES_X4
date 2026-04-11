@@ -14,3 +14,8 @@ Cat files saved without BOM header.
 Multiarray textures will be resized using TRIANGLE filter.
 Program window is now sizable.
 Added button to restore original files.
+
+0.8.0.2
+
+Added assets/legacy/textures/map/ and assets/textures/map/ paths to FX category.
+Added ability to remove mipmaps from GUI textures without resizing.

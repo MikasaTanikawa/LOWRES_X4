@@ -100,7 +100,9 @@ namespace LOWRES_X4
             else if (
                 path.StartsWith("assets/legacy/fx/textures/") ||
 	            path.StartsWith("assets/textures/fx/") ||
-	            path.StartsWith("assets/legacy/fx/weaponfx/textures/"))
+	            path.StartsWith("assets/legacy/fx/weaponfx/textures/") ||
+                path.StartsWith("assets/legacy/textures/map/") ||
+                path.StartsWith("assets/textures/map/"))
                 return TECategory.FX;
             else if (
                 path.StartsWith("assets/legacy/props/HighwayElements/textures/") ||
@@ -108,9 +110,6 @@ namespace LOWRES_X4
                 path.StartsWith("assets/legacy/textures/environments/") ||
                 path.StartsWith("assets/textures/environments/"))
                 return TECategory.Environments;
-            else if (
-                path.StartsWith("assets/legacy/textures/"))
-                return TECategory.StationExteriors;
             else if (
                 path.StartsWith("assets/legacy/textures/generic/"))
                 return TECategory.Misc;
@@ -121,6 +120,10 @@ namespace LOWRES_X4
                 path.StartsWith("assets/legacy/textures/") && // "catch all" (mostly station interiors of different fractions)
                 !path.Contains("textures/player/"))
                 return TECategory.StationInteriors;
+            else if (
+                path.StartsWith("assets/legacy/textures/") &&
+                !path.Contains("textures/player/"))
+                return TECategory.StationExteriors;
             else if (
                 path.StartsWith("assets/legacy/textures/player/") ||
                 (path.EndsWith(".gz") && path.StartsWith("assets/textures/"))) // "catch all" (mostly ship textures of different fractions)

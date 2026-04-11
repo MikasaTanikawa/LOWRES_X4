@@ -117,6 +117,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbResults = new System.Windows.Forms.RichTextBox();
             this.btnRestore = new System.Windows.Forms.Button();
+            this.rbTexGUI_Mips = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -202,6 +203,7 @@
             this.rbLODEnv3.Name = "rbLODEnv3";
             this.rbLODEnv3.Size = new System.Drawing.Size(69, 17);
             this.rbLODEnv3.TabIndex = 7;
+            this.rbLODEnv3.TabStop = true;
             this.rbLODEnv3.Text = "Minecraft";
             this.rbLODEnv3.UseVisualStyleBackColor = true;
             // 
@@ -212,6 +214,7 @@
             this.rbLODEnv1.Name = "rbLODEnv1";
             this.rbLODEnv1.Size = new System.Drawing.Size(44, 17);
             this.rbLODEnv1.TabIndex = 8;
+            this.rbLODEnv1.TabStop = true;
             this.rbLODEnv1.Text = "Bad";
             this.rbLODEnv1.UseVisualStyleBackColor = true;
             // 
@@ -222,6 +225,7 @@
             this.rbLODEnv2.Name = "rbLODEnv2";
             this.rbLODEnv2.Size = new System.Drawing.Size(56, 17);
             this.rbLODEnv2.TabIndex = 9;
+            this.rbLODEnv2.TabStop = true;
             this.rbLODEnv2.Text = "Worse";
             this.rbLODEnv2.UseVisualStyleBackColor = true;
             // 
@@ -234,7 +238,7 @@
             this.groupBox2.Location = new System.Drawing.Point(7, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(367, 40);
-            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quality: Collectables (crates / lockboxes, etc.)";
             // 
@@ -289,7 +293,7 @@
             this.groupBox3.Location = new System.Drawing.Point(6, 103);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(367, 40);
-            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Quality: Ship interiors";
             // 
@@ -344,7 +348,7 @@
             this.groupBox4.Location = new System.Drawing.Point(6, 145);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(367, 40);
-            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Quality: Ship exteriors";
             // 
@@ -400,7 +404,7 @@
             this.groupBox5.Location = new System.Drawing.Point(7, 187);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(366, 78);
-            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Quality: Station interiors";
             // 
@@ -466,7 +470,7 @@
             this.groupBox6.Location = new System.Drawing.Point(7, 267);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(366, 40);
-            this.groupBox6.TabIndex = 3;
+            this.groupBox6.TabIndex = 8;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Quality: Station exteriors";
             // 
@@ -652,6 +656,7 @@
             // 
             this.groupBox17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox17.Controls.Add(this.rbTexGUI_Mips);
             this.groupBox17.Controls.Add(this.rbTexGUI0);
             this.groupBox17.Controls.Add(this.rbTexGUI3);
             this.groupBox17.Controls.Add(this.rbTexGUI1);
@@ -666,29 +671,27 @@
             // rbTexGUI0
             // 
             this.rbTexGUI0.AutoSize = true;
-            this.rbTexGUI0.Checked = true;
             this.rbTexGUI0.Location = new System.Drawing.Point(6, 19);
             this.rbTexGUI0.Name = "rbTexGUI0";
             this.rbTexGUI0.Size = new System.Drawing.Size(81, 17);
             this.rbTexGUI0.TabIndex = 6;
-            this.rbTexGUI0.TabStop = true;
             this.rbTexGUI0.Text = "Unchanged";
             this.rbTexGUI0.UseVisualStyleBackColor = true;
             // 
             // rbTexGUI3
             // 
             this.rbTexGUI3.AutoSize = true;
-            this.rbTexGUI3.Location = new System.Drawing.Point(205, 19);
+            this.rbTexGUI3.Location = new System.Drawing.Point(291, 19);
             this.rbTexGUI3.Name = "rbTexGUI3";
             this.rbTexGUI3.Size = new System.Drawing.Size(69, 17);
-            this.rbTexGUI3.TabIndex = 7;
+            this.rbTexGUI3.TabIndex = 10;
             this.rbTexGUI3.Text = "Minecraft";
             this.rbTexGUI3.UseVisualStyleBackColor = true;
             // 
             // rbTexGUI1
             // 
             this.rbTexGUI1.AutoSize = true;
-            this.rbTexGUI1.Location = new System.Drawing.Point(93, 19);
+            this.rbTexGUI1.Location = new System.Drawing.Point(179, 19);
             this.rbTexGUI1.Name = "rbTexGUI1";
             this.rbTexGUI1.Size = new System.Drawing.Size(44, 17);
             this.rbTexGUI1.TabIndex = 8;
@@ -698,7 +701,7 @@
             // rbTexGUI2
             // 
             this.rbTexGUI2.AutoSize = true;
-            this.rbTexGUI2.Location = new System.Drawing.Point(143, 19);
+            this.rbTexGUI2.Location = new System.Drawing.Point(229, 19);
             this.rbTexGUI2.Name = "rbTexGUI2";
             this.rbTexGUI2.Size = new System.Drawing.Size(56, 17);
             this.rbTexGUI2.TabIndex = 9;
@@ -1152,6 +1155,18 @@
             this.btnRestore.UseVisualStyleBackColor = true;
             this.btnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
             // 
+            // rbTexGUI_Mips
+            // 
+            this.rbTexGUI_Mips.AutoSize = true;
+            this.rbTexGUI_Mips.Checked = true;
+            this.rbTexGUI_Mips.Location = new System.Drawing.Point(93, 19);
+            this.rbTexGUI_Mips.Name = "rbTexGUI_Mips";
+            this.rbTexGUI_Mips.Size = new System.Drawing.Size(80, 17);
+            this.rbTexGUI_Mips.TabIndex = 7;
+            this.rbTexGUI_Mips.TabStop = true;
+            this.rbTexGUI_Mips.Text = "Mipmapless";
+            this.rbTexGUI_Mips.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1302,6 +1317,7 @@
         private System.Windows.Forms.RadioButton rbTexFont0;
         private System.Windows.Forms.RichTextBox lbResults;
         private System.Windows.Forms.Button btnRestore;
+        private System.Windows.Forms.RadioButton rbTexGUI_Mips;
     }
 }
 

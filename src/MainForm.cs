@@ -70,7 +70,7 @@ namespace LOWRES_X4
             {
                 MinTextureSize = (int)numTexMinSize.Value,
                 LvlFonts = rbTexFont0.Checked ? 0 : rbTexFont1.Checked ? 1 : rbTexFont2.Checked ? 2 : 3,
-                LvlGUI = rbTexGUI0.Checked ? 0 : rbTexGUI1.Checked ? 1 : rbTexGUI2.Checked ? 2 : 3,
+                LvlGUI = rbTexGUI0.Checked ? 0 : rbTexGUI_Mips.Checked ? -1 : rbTexGUI1.Checked ? 1 : rbTexGUI2.Checked ? 2 : 3,
                 LvlNPCs = rbTexNPC0.Checked ? 0 : rbTexNPC1.Checked ? 1 : rbTexNPC2.Checked ? 2 : 3,
                 LvlFX = rbTexFX0.Checked ? 0 : rbTexFX1.Checked ? 1 : rbTexFX2.Checked ? 2 : 3,
                 LvlEnvironments = rbTexEnv0.Checked ? 0 : rbTexEnv1.Checked ? 1 : rbTexEnv2.Checked ? 2 : 3,
