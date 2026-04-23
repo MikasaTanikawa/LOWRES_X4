@@ -213,9 +213,14 @@ namespace LOWRES_X4
 
                 var imgCount = img.GetImageCount();
                 var metadata = img.GetMetadata();
-                if (imgCount > 1 && !(metadata.Height == 1 || metadata.Width == 1)) // ignore mipmapless, and non-2D textures
+                if (imgCount > 1 && !(metadata.Height == 1 || metadata.Width == 1) && cat != TextureEntry.TECategory.Fonts || // ignore mipmapless and non-2D textures
+                    (cat == TextureEntry.TECategory.Fonts && !e.Compressed && imgCount == 1)) // process fonts (except for debug console)
                 {
-                    if (levels >= 0)
+                    if (cat == TextureEntry.TECategory.Fonts)
+                    {
+                        img = img.Compress(DirectXTexNet.DXGI_FORMAT.BC4_UNORM, DirectXTexNet.TEX_COMPRESS_FLAGS.DEFAULT, 0.5f);
+                    }
+                    else if (levels >= 0)
                     {
                         if (metadata.ArraySize > 1) // resizing multiarray textures
                         {
@@ -250,6 +255,12 @@ namespace LOWRES_X4
                     ++res.Count;
                     replaced = true;
 
+                    if (cat == TextureEntry.TECategory.Fonts)
+                    {
+                        e.Compressed = true;
+                        if (e.Path.EndsWith(".dds"))
+                            e.Path = e.Path.Substring(0, e.Path.LastIndexOf(".dds")) + ".gz";
+                    }
                     e.Data = e.Compressed ? Compress(newData) : newData;
                 }
             }

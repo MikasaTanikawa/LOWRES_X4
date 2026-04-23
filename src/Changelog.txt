@@ -19,3 +19,7 @@ Added button to restore original files.
 
 Added assets/legacy/textures/map/ and assets/textures/map/ paths to FX category.
 Added ability to remove mipmaps from GUI textures without resizing.
+
+0.8.0.3
+
+Game uses uncompressed mipmapless greyscale fonts, so non-UI fonts option replaced with option to compress all fonts with BC4 algorithm and additionally compress with GZip. This doesn't affect debug console dejavu font.

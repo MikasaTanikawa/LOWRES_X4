@@ -74,6 +74,7 @@
             this.rbTexMisc1 = new System.Windows.Forms.RadioButton();
             this.rbTexMisc2 = new System.Windows.Forms.RadioButton();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.rbTexGUI_Mips = new System.Windows.Forms.RadioButton();
             this.rbTexGUI0 = new System.Windows.Forms.RadioButton();
             this.rbTexGUI3 = new System.Windows.Forms.RadioButton();
             this.rbTexGUI1 = new System.Windows.Forms.RadioButton();
@@ -85,9 +86,7 @@
             this.rbTexEnv2 = new System.Windows.Forms.RadioButton();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.rbTexFont0 = new System.Windows.Forms.RadioButton();
-            this.rbTexFont3 = new System.Windows.Forms.RadioButton();
-            this.rbTexFont1 = new System.Windows.Forms.RadioButton();
-            this.rbTexFont2 = new System.Windows.Forms.RadioButton();
+            this.rbTexFont_Compress = new System.Windows.Forms.RadioButton();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.rbTexNPC0 = new System.Windows.Forms.RadioButton();
             this.rbTexNPC3 = new System.Windows.Forms.RadioButton();
@@ -117,7 +116,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbResults = new System.Windows.Forms.RichTextBox();
             this.btnRestore = new System.Windows.Forms.Button();
-            this.rbTexGUI_Mips = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -668,6 +666,18 @@
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Quality: GUI elements (e.g. icons, includes HUD elements)";
             // 
+            // rbTexGUI_Mips
+            // 
+            this.rbTexGUI_Mips.AutoSize = true;
+            this.rbTexGUI_Mips.Checked = true;
+            this.rbTexGUI_Mips.Location = new System.Drawing.Point(93, 19);
+            this.rbTexGUI_Mips.Name = "rbTexGUI_Mips";
+            this.rbTexGUI_Mips.Size = new System.Drawing.Size(80, 17);
+            this.rbTexGUI_Mips.TabIndex = 7;
+            this.rbTexGUI_Mips.TabStop = true;
+            this.rbTexGUI_Mips.Text = "Mipmapless";
+            this.rbTexGUI_Mips.UseVisualStyleBackColor = true;
+            // 
             // rbTexGUI0
             // 
             this.rbTexGUI0.AutoSize = true;
@@ -770,57 +780,35 @@
             this.groupBox16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox16.Controls.Add(this.rbTexFont0);
-            this.groupBox16.Controls.Add(this.rbTexFont3);
-            this.groupBox16.Controls.Add(this.rbTexFont1);
-            this.groupBox16.Controls.Add(this.rbTexFont2);
+            this.groupBox16.Controls.Add(this.rbTexFont_Compress);
             this.groupBox16.Location = new System.Drawing.Point(8, 187);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Size = new System.Drawing.Size(367, 40);
             this.groupBox16.TabIndex = 3;
             this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Quality: Special (non-UI) fonts";
+            this.groupBox16.Text = "Quality: Fonts (except debug console)";
             // 
             // rbTexFont0
             // 
             this.rbTexFont0.AutoSize = true;
-            this.rbTexFont0.Checked = true;
             this.rbTexFont0.Location = new System.Drawing.Point(6, 19);
             this.rbTexFont0.Name = "rbTexFont0";
             this.rbTexFont0.Size = new System.Drawing.Size(81, 17);
             this.rbTexFont0.TabIndex = 6;
-            this.rbTexFont0.TabStop = true;
             this.rbTexFont0.Text = "Unchanged";
             this.rbTexFont0.UseVisualStyleBackColor = true;
             // 
-            // rbTexFont3
+            // rbTexFont_Compress
             // 
-            this.rbTexFont3.AutoSize = true;
-            this.rbTexFont3.Location = new System.Drawing.Point(205, 19);
-            this.rbTexFont3.Name = "rbTexFont3";
-            this.rbTexFont3.Size = new System.Drawing.Size(69, 17);
-            this.rbTexFont3.TabIndex = 7;
-            this.rbTexFont3.Text = "Minecraft";
-            this.rbTexFont3.UseVisualStyleBackColor = true;
-            // 
-            // rbTexFont1
-            // 
-            this.rbTexFont1.AutoSize = true;
-            this.rbTexFont1.Location = new System.Drawing.Point(93, 19);
-            this.rbTexFont1.Name = "rbTexFont1";
-            this.rbTexFont1.Size = new System.Drawing.Size(44, 17);
-            this.rbTexFont1.TabIndex = 8;
-            this.rbTexFont1.Text = "Bad";
-            this.rbTexFont1.UseVisualStyleBackColor = true;
-            // 
-            // rbTexFont2
-            // 
-            this.rbTexFont2.AutoSize = true;
-            this.rbTexFont2.Location = new System.Drawing.Point(143, 19);
-            this.rbTexFont2.Name = "rbTexFont2";
-            this.rbTexFont2.Size = new System.Drawing.Size(56, 17);
-            this.rbTexFont2.TabIndex = 9;
-            this.rbTexFont2.Text = "Worse";
-            this.rbTexFont2.UseVisualStyleBackColor = true;
+            this.rbTexFont_Compress.AutoSize = true;
+            this.rbTexFont_Compress.Checked = true;
+            this.rbTexFont_Compress.Location = new System.Drawing.Point(93, 19);
+            this.rbTexFont_Compress.Name = "rbTexFont_Compress";
+            this.rbTexFont_Compress.Size = new System.Drawing.Size(147, 17);
+            this.rbTexFont_Compress.TabIndex = 8;
+            this.rbTexFont_Compress.TabStop = true;
+            this.rbTexFont_Compress.Text = "Compressed (BC4 + GZip)";
+            this.rbTexFont_Compress.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
@@ -1155,18 +1143,6 @@
             this.btnRestore.UseVisualStyleBackColor = true;
             this.btnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
             // 
-            // rbTexGUI_Mips
-            // 
-            this.rbTexGUI_Mips.AutoSize = true;
-            this.rbTexGUI_Mips.Checked = true;
-            this.rbTexGUI_Mips.Location = new System.Drawing.Point(93, 19);
-            this.rbTexGUI_Mips.Name = "rbTexGUI_Mips";
-            this.rbTexGUI_Mips.Size = new System.Drawing.Size(80, 17);
-            this.rbTexGUI_Mips.TabIndex = 7;
-            this.rbTexGUI_Mips.TabStop = true;
-            this.rbTexGUI_Mips.Text = "Mipmapless";
-            this.rbTexGUI_Mips.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1310,9 +1286,7 @@
         private System.Windows.Forms.RadioButton rbTexGUI1;
         private System.Windows.Forms.RadioButton rbTexGUI2;
         private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.RadioButton rbTexFont3;
-        private System.Windows.Forms.RadioButton rbTexFont1;
-        private System.Windows.Forms.RadioButton rbTexFont2;
+        private System.Windows.Forms.RadioButton rbTexFont_Compress;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rbTexFont0;
         private System.Windows.Forms.RichTextBox lbResults;
